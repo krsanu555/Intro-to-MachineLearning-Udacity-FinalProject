@@ -18,8 +18,10 @@ Looking at file enron61702insiderpay.pdf, was verified that these values doesn�
 What features did you end up using in your POI identifier, and what selection process did you use to pick them? Did you have to do any scaling? Why or why not? As part of the assignment, you should attempt to engineer your own feature that does not come ready-made in the dataset -- explain what feature you tried to make, and the rationale behind it. (You do not necessarily have to use it in the final analysis, only engineer and test it.) In your feature selection step, if you used an algorithm like a decision tree, please also give the feature importance of the features that you use, and if you used an automated feature selection function like SelectKBest, please report the feature scores and reasons for your choice of parameter values. [relevant rubric items: “create new features”, “intelligently select features”, “properly scale features”]
 
 The features which I have used are as follows:-
+```
 ['poi', 'salary', 'to_messages', 'loan_advances', 'bonus', 'deferred_income', 'expenses', 'from_poi_to_this_person', 'exercised_stock_options', 'from_messages', 'from_this_person_to_poi', 'shared_receipt_with_poi', 'restricted_stock', 'fraction_from_poi', 'fraction_to_poi']
 
+```
 Out of the above features, following two features I have created which is not in actual dataset:-
 ['fraction_from_poi', 'fraction_to_poi']
 
@@ -33,9 +35,10 @@ Here,Person 2 is more suspected of being an POI as 80% of email are sent to POIs
 
 This way, new feature 'fraction_from_poi' are created.In the same way, another feature 'fraction_to_poi' are created.
 
-The features were selected by using SelectKBest imported from sklearn.feature_selection module. Using this following score for features was obtained:-
+The features were selected by using SelectKBest imported from sklearn.feature_selection module. Using this, following score for features was obtained:-
+```
 [['exercised_stock_options', 24.25047235452619], ['bonus', 20.25718499812395], ['salary', 17.71787357924329], ['fraction_to_poi', 15.946248696687636], ['deferred_income', 11.184580251839124], ['restricted_stock', 8.94550301526133], ['shared_receipt_with_poi', 8.276138216260644], ['loan_advances', 7.066710861319749], ['expenses', 5.815328001904854], ['from_poi_to_this_person', 5.041257378669385], ['fraction_from_poi', 2.963990314926164], ['from_this_person_to_poi', 2.295183195738003], ['to_messages', 1.5425809046549228], ['from_messages', 0.18121500856156128]]
-
+```
 
 **Question 3**
 
@@ -82,8 +85,5 @@ Validation is a method of testing whether or not your algorithm is doing what yo
 Give at least 2 evaluation metrics and your average performance for each of them. Explain an interpretation of your metrics that says something human-understandable about your algorithm’s performance. [relevant rubric item: “usage of evaluation metrics”]
 
 The evaluation metrics that I used were recall, precision, and f1 score. The recall score was .32, which means out of all actual POIs, the algorithm correctly identified 32% as being a POI (or 68% were incorrectly labeled as a Non-POI when they were actually a POI). The precision score was .46, which means 46% of all people labeled as POI’s were indeed a POI (54% were labeled as a POI, but were actually a Non-POI). The F1 score is a combination of precision and recall, the higher the F1 score, the better the algorithm is doing at classifying.
-
-
-
 
 
