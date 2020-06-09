@@ -23,12 +23,14 @@ The features which I have used are as follows:-
 
 ```
 Out of the above features, following two features I have created which is not in actual dataset:-
-['fraction_from_poi', 'fraction_to_poi']
+1. fraction_from_poi
+2. fraction_to_poi'
 
 This two features are calculated in this way:-
+```
 fraction_from_poi=float(from_poi_to_this_person)/float(to_messages)
 fraction_to_poi=float(from_this_person_to_poi)/float(from_messages)
-
+```
 My intuition behind using these features are that POIs must have strong email connection. In our dataset,18 peoples are marked as POI. So person which has more numbers of emails(sent/received) out of total messages(sent/received) related to POIs person can be suspect as POI.
 For example, Suppose Person 1 sends 60 messages to POIs Person out of total 100 messages sent by him.Person 2 sends 40 messages to POIs Person out of total 50 messages sent by him.
 Here,Person 2 is more suspected of being an POI as 80% of email are sent to POIs.
